@@ -8,7 +8,7 @@ const Accordion = ({ items }) => {
   const onClick = idx => {
     setExpandedIndex(prevIndex => {
       if (prevIndex === idx) {
-        // Using setting func 'prevState' to fix a bug
+        // Using setter func's 'prevState' to fix a bug
         // if same index, close it which didn't happen on super fast double click
         // console.log(expandedIndex); $0.click(); $0.click();
         return -1;
