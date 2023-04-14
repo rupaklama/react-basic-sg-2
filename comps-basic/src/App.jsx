@@ -1,22 +1,26 @@
-import { useState } from "react";
-import DropDown from "./components/DropDown/DropDown";
-
-const options = [
-  { label: "Red", value: "red" },
-  { label: "Green", value: "green" },
-  { label: "Blue", value: "blue" },
-];
+import Route from "./components/Route/Route";
+import Sidebar from "./components/Sidebar/Sidebar";
+import AccordionPage from "./pages/AccordionPage/AccordionPage";
+import ButtonPage from "./pages/ButtonPage/ButtonPage";
+import DropDownPage from "./pages/DropDownPage/DropDownPage";
 
 const App = () => {
-  const [value, setValue] = useState(null);
-
-  const onChange = option => {
-    setValue(option);
-  };
-
   return (
-    <div className="flex">
-      <DropDown options={options} value={value} onChange={onChange} />
+    <div className="container mx-auto grid grid-cols-6 gap-4 mt-4">
+      <Sidebar />
+
+      <div className="col-span-5">
+        <Route path="/">
+          <DropDownPage />
+        </Route>
+        <Route path="/accordion">
+          <AccordionPage />
+        </Route>
+
+        <Route path="/buttons">
+          <ButtonPage />
+        </Route>
+      </div>
     </div>
   );
 };

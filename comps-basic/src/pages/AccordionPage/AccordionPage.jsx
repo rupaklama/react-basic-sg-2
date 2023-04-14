@@ -18,7 +18,7 @@ const items = [
   },
 ];
 
-const App = () => {
+const AccordionPage = () => {
   return <Accordion items={items} />;
 };
-export default App;
+export default AccordionPage;
