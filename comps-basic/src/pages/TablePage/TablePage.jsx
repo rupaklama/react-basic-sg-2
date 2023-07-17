@@ -1,6 +1,7 @@
-import Table from "../../components/Table/Table";
+import SortableTable from "../../components/Table/SortableTable";
 
 const TablePage = () => {
+  // rows
   const data = [
     { name: "orange", color: "bg-orange-500", score: 5 },
     { name: "Apple", color: "bg-red-500", score: 3 },
@@ -8,10 +9,12 @@ const TablePage = () => {
     { name: "Lime", color: "bg-green-500", score: 4 },
   ];
 
+  // columns
   const config = [
     {
       label: "Name",
       render: item => item.name,
+      getSortValue: item => item.name,
     },
     {
       label: "Color",
@@ -20,6 +23,9 @@ const TablePage = () => {
     {
       label: "Score",
       render: item => item.score,
+      getSortValue: item => item.score,
+      // inside sortable table component, add this custom header
+      // header: () => <th onClick={sortOrder()}>Score</th>
     },
   ];
 
@@ -29,7 +35,7 @@ const TablePage = () => {
 
   return (
     <div>
-      <Table data={data} config={config} keyFn={generateKey} />
+      <SortableTable data={data} config={config} keyFn={generateKey} />
     </div>
   );
 };
